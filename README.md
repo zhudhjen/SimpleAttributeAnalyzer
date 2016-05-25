@@ -2,5 +2,5 @@
 
 Based on Lex/Yacc
 
-For 6.30
+For exercise 6.30
 
