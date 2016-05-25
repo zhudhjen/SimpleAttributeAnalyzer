@@ -1,6 +1,7 @@
 *.o
-*.c
-*.h
+*.lex.c
+*.tab.c
+*.tab.h
 *.output
 simplec
 
