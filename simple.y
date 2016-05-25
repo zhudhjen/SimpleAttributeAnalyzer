@@ -36,7 +36,7 @@ static void attrError(const char *msg);
 %token ID
 
 %start program
-%type <name> id ID
+%type <name> ID
 %type <type> BOOL INT type_exp exp
 %type <val> NUMBER
 
@@ -54,7 +54,7 @@ var_decls : var_decls SEMI var_decl
     | var_decl
     ;
 
-var_decl : id COLON type_exp            { addSymbol($1, $3); }
+var_decl : ID COLON type_exp            { addSymbol($1, $3); }
     ;
 
 type_exp : INT                          { $$ = makeBaseNode(INT_T); }
@@ -71,7 +71,7 @@ stmt : IF exp THEN stmt                 {
             attrError("Condition of if statement must be of bool type.");
         }
     }
-    | id ASSIGN exp                     {
+    | ID ASSIGN exp                     {
         type_t type = lookupSymbol($1);
         if (!type) {
             char error[100];
@@ -110,10 +110,7 @@ exp : exp PLUS exp                      {
     | NUMBER                            { $$ = makeBaseNode(INT_T); }
     | TRUE                              { $$ = makeBaseNode(BOOL_T); }
     | FALSE                             { $$ = makeBaseNode(BOOL_T); }
-    | id                                { $$ = lookupSymbol($1); }
-    ;
-
-id : ID                                 { $$ = $1; }
+    | ID                                { $$ = lookupSymbol($1); }
     ;
 
 %% 
