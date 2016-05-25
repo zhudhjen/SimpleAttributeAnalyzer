@@ -27,5 +27,5 @@ simplec: simple.lex.o simple.attr.o simple.tab.o
 	$(CC) $^ $(LDFLAGS) -o $@
 
 clean:
-	rm -f simple.tab.c simple.tab.h simple.output simple.lex.c simple.tab.o simple.lex.o simplec
+	rm -f simple.tab.c simple.tab.h simple.output simple.lex.c simple.tab.o simple.attr.o simple.lex.o simplec
 
