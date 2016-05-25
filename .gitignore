@@ -1,0 +1,8 @@
+*.o
+*.c
+*.h
+*.output
+simplec
+
+*~
+.DS_Store

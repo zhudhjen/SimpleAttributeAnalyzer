@@ -1,0 +1,11 @@
+a : int;
+b : array [10] of int;
+c : bool;
+d : bool;
+
+c := true;
+d := false;
+a := 2;
+if c or d then 
+    a := 3 + b[a];
+
