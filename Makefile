@@ -14,13 +14,16 @@ simple.lex.c: simple.l simple.tab.h
 	$(LEX) $<
 	mv lex.yy.c $@
 
-simple.tab.o: simple.tab.c simple.global.h
+simple.tab.o: simple.tab.c simple.global.h simple.attr.h
 	$(CC) $< $(CFLAGS) -c -o $@
 
 simple.lex.o: simple.lex.c simple.tab.h simple.global.h
 	$(CC) $< $(CFLAGS) -c -o $@
 
-simplec: simple.lex.o simple.tab.o
+simple.attr.o: simple.attr.c simple.attr.h
+	$(CC) $< $(CFLAGS) -c -o $@
+
+simplec: simple.lex.o simple.attr.o simple.tab.o
 	$(CC) $^ $(LDFLAGS) -o $@
 
 clean:
