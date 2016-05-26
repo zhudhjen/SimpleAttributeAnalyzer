@@ -15,6 +15,8 @@ extern int yylex();
 int syntax_error_count;
 extern int attribute_error_count;
 
+int yyerror(char *s);
+
 %}
 
 %token ARRAY BOOL IF INT OF OR THEN 

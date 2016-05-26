@@ -1,7 +1,7 @@
 CC=gcc
 CXX=g++
-LEX=lex
-YACC=yacc
+LEX=flex
+YACC=bison
 CFLAGS=-g
 LDFLAGS=-ly -ll
 
